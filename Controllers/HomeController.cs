@@ -27,9 +27,6 @@ namespace TPLOCAL1.Controllers
                     case "Formulaire":
                         //TODO : call the Form view with data model empty
                         return View ( id );
-                    case "Validation":
-                        //TODO : call the Form view with data model empty
-                        return View ( id );
                     default:
                         //retourn to the Index view (see routing in Program.cs)
                         return View ();
@@ -40,15 +37,32 @@ namespace TPLOCAL1.Controllers
 
         //methode to send datas from form to validation page
         [HttpPost]
-        public ActionResult ValidationFormulaire (/*model*/)
+        public ActionResult ValidationFormulaire ( FormulaireModel formulaire )
         {
             //TODO : test if model's fields are set
             //if not, display an error message and stay on the form page
             //else, call ValidationForm with the datas set by the user
-            return null;
 
+
+            string? nom = formulaire.Name;
+            string? prenom = formulaire.Firstname;
+            string? sexe = formulaire.Sex;
+            string? adresse = formulaire.Adress;
+            int codepostal = formulaire.PostalCode;
+            string? ville = formulaire.City;
+            string? mail = formulaire.Mail;
+            string? datedebformation = formulaire.StartFormation;
+            string? typeformation = formulaire.FormationType;
+            string? cobol = formulaire.Cobol;
+            string? csharp = formulaire.Csharp;
+
+            ViewData["Formulaire"] = formulaire;
+
+            if (ModelState.IsValid)
+            {
+                return View ( formulaire );
+            }
+            return View ( "Formulaire" );
         }
-
-
     }
 }
