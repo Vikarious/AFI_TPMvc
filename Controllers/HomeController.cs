@@ -11,25 +11,28 @@ namespace TPLOCAL1.Controllers
     public class HomeController : Controller
     {
         //methode "naturally" call by router
-        public ActionResult Index(string id)
+        public ActionResult Index ( string id )
         {
-            if (string.IsNullOrWhiteSpace(id))
+            if (string.IsNullOrWhiteSpace ( id ))
                 //retourn to the Index view (see routing in Program.cs)
-                return View();
+                return View ();
             else
             {
                 //Call different pages, according to the id pass as parameter
                 switch (id)
                 {
-                    case "OpinionList":
+                    case "ListeAvis":
                         //TODO : code reading of the xml files provide
-                        return View(id);
-                    case "Form":
+                        return View ( id );
+                    case "Formulaire":
                         //TODO : call the Form view with data model empty
-                        return View(id);
+                        return View ( id );
+                    case "Validation":
+                        //TODO : call the Form view with data model empty
+                        return View ( id );
                     default:
                         //retourn to the Index view (see routing in Program.cs)
-                        return View();
+                        return View ();
                 }
             }
         }
@@ -37,7 +40,7 @@ namespace TPLOCAL1.Controllers
 
         //methode to send datas from form to validation page
         [HttpPost]
-        public ActionResult ValidationFormulaire(/*model*/)
+        public ActionResult ValidationFormulaire (/*model*/)
         {
             //TODO : test if model's fields are set
             //if not, display an error message and stay on the form page
@@ -45,5 +48,7 @@ namespace TPLOCAL1.Controllers
             return null;
 
         }
+
+
     }
 }

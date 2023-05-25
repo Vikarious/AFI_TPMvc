@@ -1,0 +1,129 @@
+﻿﻿<!-- TPLOCAL1.Models.FormulaireModel -->
+
+<head>
+    <link rel="stylesheet" href="~/ressources/Index.css" />
+    <title>HN - TP LOCAL</title>
+
+</head>
+
+<body>
+
+    <header>
+        <img src="~/ressources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <h1>Formulaire TP HN avis</h1>
+    </header>
+
+
+    <nav>
+        <ul>
+            <li><a href="/Home/Index/Formulaire">Remplir le formulaire</a></li>
+            <li><a href="/Home/Index/ListeAvis">Liste avis</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <form action="/Home/Index/Validation">
+           
+            <table style="width:40%">
+                <tr>
+
+                    <th colspan="2">Informations Personnelles</th>
+
+                </tr>
+                <tr>
+                    <td style="width:25%">Nom</td>
+                    <td>
+                        <input type="text" id="fnom" name="fnom" size="45">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Prénom</td>
+                    <td>
+                        <input type="text" id="fprénom" name="fprénom" size="45">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sexe</td>
+                    <td>
+                        <select name="Sexes" id="sexe-select">
+                            <option value="">Sélectionner un sexe</option>
+                            <option value="Homme">Homme</option>
+                            <option value="Femme">Femme</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Adresse</td>
+                    <td><input type="text" id="fadresse" name="fadresse" size="45"></td>
+                </tr>
+                <tr>
+                    <td>Code postal</td>
+                    <td>
+                        <input type="number" id="fcodepostal" name="fcodepostal" maxlength="5" min="00000" max="99999" size="45">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ville</td>
+                    <td><input type="text" id="fville" name="fville" size="45"></td>
+                </tr>
+                <tr>
+                    <td>Adresse Mail</td>
+                    <td>
+                        <input type="email" id="email" name="email"
+                               size="45" required>
+                    </td>
+                </tr>
+            </table>
+            <table style="width:50%">
+                <tr>
+
+                    <th colspan="2">Informations formation suivie</th>
+
+                </tr>
+                <tr>
+                    <td style="width:30%">Date début formation</td>
+                    <td>
+                        <input type="date" id="fdate" name="fdate" size="40"
+                               min="1999-01-01" max="2023-12-31">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Type de formation</td>
+                    <td>
+                        <select name="Type de formation" id="Typedeformation-select">
+                            <option value="">Sélectionner une formation</option>
+                            <option value="Formation Cobol">Formation Cobol</option>
+                            <option value="Formation objet">Formation objet</option>
+                            <option value="Formation double compétence">Formation double compétence</option>
+                        </select>
+                    </td>
+                </tr>
+
+            </table>
+            <table style="width:45%">
+                <tr>
+
+                    <th colspan="2">Avis sur la formation</th>
+
+                </tr>
+                <tr>
+                    <td style="width:40%">Formation Cobol</td>
+
+                    <td><input type="text" id="fcobol" name="fcobol" size="40"></td>
+
+                </tr>
+                <tr>
+                    <td>Formation C#</td>
+
+                    <td><input type="text" id="fC" name="fC" size="40"></td>
+
+                </tr>
+
+            </table>
+            <input type="submit" value="Valider" />
+
+        </form>
+    </section>
+
+</body>

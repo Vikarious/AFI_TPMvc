@@ -1,0 +1,62 @@
+﻿﻿<!-- TPLOCAL1.Models.FormulaireModel -->
+
+<head>
+    <link rel="stylesheet" href="~/ressources/Index.css" />
+    <title>HN - TP LOCAL</title>
+
+</head>
+
+<body>
+
+    <header>
+        <img src="~/ressources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <h1>Liste des avis</h1>
+    </header>
+
+
+    <nav>
+        <ul>
+            <li><a href="/Home/Index">Accueil</a></li>
+            <li><a href="/Home/Index/Formulaire">Formulaire</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <p>
+
+            <table style="width:30%">
+                <tr>
+
+                    <th colspan="3">Liste</th>
+
+                </tr>
+                <tr>
+                    <td style="width:33%">Nom </td>
+                    <td style="width:33%">Prénom</td>
+                    <td style="width:33%">Avis donné</td>
+
+
+                </tr>
+                @foreach (var Opinion in Model)
+                {
+                    <tr>
+
+                        <td style="width:33%">@Opinion.LastName</td>
+                        <td style="width:33%">@Opinion.Firstname</td>
+                        @if (@Opinion.OpinionGiven == "")
+                        {
+                            <td style="background-color: red">Non</td>
+                        }
+                        else
+                        {
+                            <td style="background-color: green">Oui</td>
+                        }
+
+                    </tr>
+                }
+            </table>
+
+        </p>
+    </section>
+
+</body>
