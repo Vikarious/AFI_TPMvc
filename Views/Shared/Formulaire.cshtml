@@ -1,24 +1,24 @@
 ﻿
 @model TPLOCAL1.Models.FormulaireModel
 @{
-    ViewData["Title"] = "Form";
+    ViewData["Title"] = "Formulaire";
 }
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Formulaire</title>
-    <link rel="stylesheet" href="~/ressources/Index.css" />
+    <link rel="stylesheet" href="~/resources/Index.css" />
 </head>
 <body>
     <header>
-        <img src="~/ressources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
         <h1>Formulaire TP HN avis</h1>
     </header> 
     <nav> 
         <ul>
             <li><a href="/Home/Index/Index">Acceuil</a></li>
-            <li><a href="/Home/Index/OpinionList">Liste avis</a></li>
+            <li><a href="/Home/Index/ListeAvis">Liste avis</a></li>
         </ul>
     </nav>
     @using (Html.BeginForm("ValidationFormulaire", "Home", FormMethod.Post))
@@ -52,7 +52,9 @@
                 <td>
                     @Html.DropDownListFor(m => m.Sex, new List<SelectListItem>
                     { new SelectListItem{Text="Homme", Value="Homme"},
-                      new SelectListItem{Text="Femme", Value="Femme"}, new SelectListItem{Text="Autre", Value="Autre"}}, "Selectionner un sexe")
+                      new SelectListItem{Text="Femme", Value="Femme"}, 
+                      new SelectListItem{Text="Autre", Value="Autre"}}, 
+                      "Selectionner un sexe")
                     @Html.ValidationMessageFor(m => m.Sex, "", new { @class = "error" })
                 </td>
                 
@@ -111,7 +113,7 @@
         </tr>
         <tr>
             <td>
-                Sexe
+                Formation suivie
             </td>
             <td>
                 @Html.DropDownListFor(m => m.FormationType, new List<SelectListItem>

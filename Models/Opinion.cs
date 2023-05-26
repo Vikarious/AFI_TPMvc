@@ -15,39 +15,39 @@ namespace TPLOCAL1.Models
         /// Function that alow to recover the opinions list inside an xml file
         /// </summary>
         /// <param name="file">file path</param>
-        public List<Opinion> GetAvis(string file)
+        public List<Opinion> GetAvis ( string file )
         {
             // instantiating empty list
-            List<Opinion> opinionList = new List<Opinion>();
+            List<Opinion> opinionList = new List<Opinion> ();
 
             // Creation of an XMLDocument object that alow to recover datas from the file
-            XmlDocument xmlDoc = new XmlDocument();
+            XmlDocument xmlDoc = new XmlDocument ();
             // Reading of the file thank to a StreamReader file
-            StreamReader streamDoc = new StreamReader(file);
-            string dataXml = streamDoc.ReadToEnd();
+            StreamReader streamDoc = new StreamReader ( file );
+            string dataXml = streamDoc.ReadToEnd ();
             // Loading data in the XmlDocument
-            xmlDoc.LoadXml(dataXml);
+            xmlDoc.LoadXml ( dataXml );
 
             // Retrieve the nodes, convert them to the "Avis" object, and add them to the "OpinionList" list.
             // Loop through each XmlNode node with the path "root/row" (see xml file structure)
             // The SelectNodes method retrieves all nodes with the specified path.
-            foreach (XmlNode node in xmlDoc.SelectNodes("root/row"))
+            foreach (XmlNode node in xmlDoc.SelectNodes ( "root/row" ))
             {
                 // Retrieving data from child nodes.
-                string LastName = node["LastName"].InnerText;
-                string FirstName = node["FirstName"].InnerText;
-                string OpinionGiven = node["OpinionGiven"].InnerText;
+                string Nom = node["Nom"].InnerText;
+                string Prenom = node["Prenom"].InnerText;
+                string Avis = node["Avis"].InnerText;
 
                 // Creating the "Opinion" object to add to the results list.
                 Opinion opinion = new Opinion
                 {
-                    LastName = LastName,
-                    FirstName = FirstName,
-                    OpinionGiven = OpinionGiven
+                    Nom = Nom,
+                    Prenom = Prenom,
+                    Avis = Avis
                 };
 
                 // Adding the object to the list.
-                opinionList.Add(opinion);
+                opinionList.Add ( opinion );
             }
 
             // Returning the list formed by processing to the calling method.
@@ -67,14 +67,14 @@ namespace TPLOCAL1.Models
         /// <summary>
         /// Last name
         /// </summary>
-        public string LastName { get; set; }
+        public string Nom { get; set; }
         /// <summary>
         /// First name
         /// </summary>
-        public string FirstName { get; set; }
+        public string Prenom { get; set; }
         /// <summary>
         /// Review given (Possible values: O or N)
         /// </summary>
-        public string OpinionGiven { get; set; }
+        public string Avis { get; set; }
     }
 }

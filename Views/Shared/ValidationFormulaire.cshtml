@@ -8,11 +8,11 @@
 <html>
 <head>
     <title>Page de Validation</title>
-    <link rel="stylesheet" href="~/ressources/Index.css" />
+    <link rel="stylesheet" href="~/resources/Index.css" />
 </head>
 <body>
     <header>
-        <img src="~/ressources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
         <h1>Page de validation</h1>
     </header>
     <nav>
@@ -22,10 +22,10 @@
         </ul>
     </nav>
 
-    <p>Votre demande a été prise en compte.</p>
+    <p>Demande prise en compte !</p>
 
     @{
-        var formulaire = ViewData["Formulaire"] as formulaire;
+        var formulaire = ViewData["Formulaire"] as FormulaireModel;
     }
     <table>
         <caption align="top">

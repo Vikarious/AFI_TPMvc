@@ -1,6 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
+﻿using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Text.RegularExpressions;
 using TPLOCAL1.Models;
+using System.Reflection;
 
 //Subject is find at the root of the project and the logo in the wwwroot/ressources folders of the solution
 //--------------------------------------------------------------------------------------
@@ -10,6 +16,7 @@ namespace TPLOCAL1.Controllers
 {
     public class HomeController : Controller
     {
+
         //methode "naturally" call by router
         public ActionResult Index ( string id )
         {
@@ -22,8 +29,13 @@ namespace TPLOCAL1.Controllers
                 switch (id)
                 {
                     case "ListeAvis":
-                        //TODO : code reading of the xml files provide
-                        return View ( id );
+                        //TODO : code reading of the xml files provided
+
+                        OpinionList opinion = new OpinionList ();
+
+                        var model = opinion.GetAvis ( "XlmFile/DataAvis.xml" );
+                        // Provide the model to the view.
+                        return View ( id, model );
                     case "Formulaire":
                         //TODO : call the Form view with data model empty
                         return View ( id );

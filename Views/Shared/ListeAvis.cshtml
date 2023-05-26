@@ -1,62 +1,51 @@
-﻿﻿<!-- TPLOCAL1.Models.FormulaireModel -->
+﻿@model IEnumerable<TPLOCAL1.Models.Opinion>
 
+@{
+    ViewBag.Title = "Opinions";
+}
 <head>
-    <link rel="stylesheet" href="~/ressources/Index.css" />
-    <title>HN - TP LOCAL</title>
-
+    <title>Formulaire</title>
+    <link rel="stylesheet" href="~/resources/Index.css" />
 </head>
-
-<body>
-
     <header>
-        <img src="~/ressources/GroupeHN.png" class="image" alt="GroupeHN" />
-        <h1>Liste des avis</h1>
+        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <h1>Formulaire TP HN avis</h1>
     </header>
-
-
     <nav>
         <ul>
-            <li><a href="/Home/Index">Accueil</a></li>
-            <li><a href="/Home/Index/Formulaire">Formulaire</a></li>
+            <li><a href="/Home/Index/Index">Acceuil</a></li>
+            <li><a href="/Home/Index/ListeAvis">Liste avis</a></li>
         </ul>
     </nav>
 
-    <section>
-        <p>
+<h2>Opinions</h2>
 
-            <table style="width:30%">
-                <tr>
-
-                    <th colspan="3">Liste</th>
-
-                </tr>
-                <tr>
-                    <td style="width:33%">Nom </td>
-                    <td style="width:33%">Prénom</td>
-                    <td style="width:33%">Avis donné</td>
-
-
-                </tr>
-                @foreach (var Opinion in Model)
+<table class="table">
+    <thead>
+        <tr>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Avis donnée</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nom</td>
+                <td>@item.Prenom</td>
+                @if (item.Avis == "N")
                 {
-                    <tr>
-
-                        <td style="width:33%">@Opinion.LastName</td>
-                        <td style="width:33%">@Opinion.Firstname</td>
-                        @if (@Opinion.OpinionGiven == "")
-                        {
-                            <td style="background-color: red">Non</td>
-                        }
-                        else
-                        {
-                            <td style="background-color: green">Oui</td>
-                        }
-
-                    </tr>
+                    <td style="background-color: red">Non</td>
                 }
-            </table>
-
-        </p>
-    </section>
-
-</body>
+                else
+                {
+                    <td style="background-color: green">Oui</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+@{
+    Layout = null;
+}
